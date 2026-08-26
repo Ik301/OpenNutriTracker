@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:opennutritracker/core/utils/hive_db_provider.dart';
 import 'package:opennutritracker/core/utils/hive_storage_integrity_exception.dart';
@@ -89,6 +90,15 @@ class SecureAppStorageProvider {
   /// non-empty `*.hive` file. Used to distinguish first install from a
   /// partial secure-storage loss.
   Future<bool> _hasExistingEncryptedHiveData() async {
+    // On web there is no local filesystem: Hive lives in IndexedDB and
+    // flutter_secure_storage backs onto WebCrypto/IndexedDB, so there is no
+    // existing encrypted *.hive file to inspect. Treat a fresh browser as a
+    // fresh install (mint a new AES key) rather than throwing via
+    // path_provider, which is unsupported on web.
+    if (kIsWeb) {
+      return false;
+    }
+
     final directory = await getApplicationDocumentsDirectory();
     if (!await directory.exists()) return false;
 

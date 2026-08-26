@@ -8,6 +8,7 @@ import 'package:opennutritracker/features/diary/diary_page.dart';
 import 'package:opennutritracker/core/presentation/widgets/home_appbar.dart';
 import 'package:opennutritracker/features/home/home_page.dart';
 import 'package:opennutritracker/core/presentation/widgets/main_appbar.dart';
+import 'package:opennutritracker/features/princeton/presentation/princeton_dining_page.dart';
 import 'package:opennutritracker/features/profile/profile_page.dart';
 import 'package:opennutritracker/features/trends/presentation/trends_page.dart';
 import 'package:opennutritracker/generated/l10n.dart';
@@ -48,12 +49,17 @@ class _MainScreenState extends State<MainScreen> {
       const DiaryPage(),
       const TrendsPage(),
       const ProfilePage(),
+      const PrincetonDiningPage(),
     ];
     _appbarPages = [
       const HomeAppbar(),
       MainAppbar(title: S.of(context).diaryLabel, iconData: Icons.book),
       MainAppbar(title: S.of(context).trendsLabel, iconData: Icons.insights),
       MainAppbar(title: S.of(context).youLabel, iconData: Icons.account_circle),
+      const MainAppbar(
+        title: 'Dining Hall',
+        iconData: Icons.restaurant_outlined,
+      ),
     ];
     super.didChangeDependencies();
   }
@@ -131,6 +137,16 @@ class _MainScreenState extends State<MainScreen> {
               selectedIcon: Icons.account_circle_rounded,
               label: S.of(context).youLabel,
               index: 3,
+              selectedIndex: _selectedPageIndex,
+              palette: palette,
+              onTap: _setPage,
+            ),
+            _NavItem(
+              id: 'nav-dining',
+              icon: Icons.restaurant_outlined,
+              selectedIcon: Icons.restaurant_rounded,
+              label: 'Dining',
+              index: 4,
               selectedIndex: _selectedPageIndex,
               palette: palette,
               onTap: _setPage,
