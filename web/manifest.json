@@ -1,11 +1,11 @@
 {
-    "name": "opennutritracker",
-    "short_name": "opennutritracker",
+    "name": "Princeton Eats",
+    "short_name": "Princeton Eats",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#22de5f",
+    "theme_color": "#22de5f",
+    "description": "Daily Princeton dining hall menus and nutrition tracking.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

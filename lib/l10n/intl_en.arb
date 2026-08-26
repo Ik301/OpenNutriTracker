@@ -244,7 +244,7 @@
   "alphaVersionName": "[Alpha]",
   "appDescription": "OpenNutriTracker is a free and open-source calorie and nutrient tracker that respects your privacy.",
   "appLicenseLabel": "GPL-3.0 license",
-  "appTitle": "OpenNutriTracker",
+  "appTitle": "Princeton Eats",
   "appVersionName": "Version {versionNumber}",
   "@appVersionName": {"placeholders": {"versionNumber": {"type": "String"}}},
   "barcodeInvalidEan13CheckDigit": "This 13-digit barcode looks miskeyed: its last digit doesn't match the rest",
